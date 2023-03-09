@@ -1,0 +1,212 @@
+// ------------------------------------------------------------------------------------
+// XTS POPUP
+// ------------------------------------------------------------------------------------
+
+@if $general {
+
+	.xts-popup {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 9999;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		visibility: hidden;
+		padding: 15px;
+		opacity: 0;
+		// transform: scale(.8);
+		pointer-events: none;
+	}
+
+	.xts-popup-inner {
+		// margin: auto;
+		position: relative;
+		overflow: hidden;
+		max-width: 650px;
+		max-height: 90vh;
+		width: 100%;
+		// opacity: 0;
+		border-radius: var(--xts-option-border-radius);
+		background-color: #FFF;
+		box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, .2), 0px 24px 38px 3px rgba(0, 0, 0, .14), 0px 9px 46px 8px rgba(0, 0, 0, .12);
+		pointer-events: auto;
+	}
+
+	.xts-popup-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		// box-sizing: border-box;
+		padding: 20px;
+		height: 70px;
+		border-bottom: 1px solid var(--xts-option-border-color);
+		// border-bottom: 1px solid #573C3C;
+		// background: #222;
+		// color: #FFF;
+		font-size: 16px;
+	}
+
+	.xts-popup-title {
+		color: var(--xts-heading-color);
+		font-weight: 600;
+		font-size: 18px;
+	}
+
+	.xts-popup-content {
+		overflow-x: hidden;
+		overflow-y: auto;
+		padding: 20px;
+		max-height: 60vh;
+		// transition: all .25s ease;
+
+		@include xts-bg-loader;
+
+		.xts-loading & {
+			@include xts-act-bg-loader;
+		}
+
+		&::-webkit-scrollbar {
+			width: 5px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background-color: rgba(#000,.05);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: rgba(#000,.12);
+		}
+
+		.xts-field {
+			margin-bottom: 20px;
+
+			// &:last-child {
+			// 	margin-bottom: 0;
+			// }
+		}
+	}
+
+	.xts-popup-actions {
+		margin: 0;
+		padding: 20px;
+		border-top: 1px solid var(--xts-option-border-color);
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	.xts-popup-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 1400;
+		visibility: hidden;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, .54);
+		opacity: 0;
+	}
+
+	.xts-popup-close {
+		position: absolute;
+		top: 0;
+		inset-inline-end: 0;
+		z-index: 21;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 70px;
+		height: 70px;
+		outline: none !important;
+		box-shadow: none !important;
+		color: var(--xts-heading-color);
+		text-decoration: none;
+		font-size: 0;
+		cursor: pointer;
+		transition: .3s all ease-in-out !important; // NOTE OVERWRIGHT WP TRANSITION
+
+		&:before {
+			font-size: 20px;
+			line-height: 70px;
+		}
+
+		.xts-loading & {
+			opacity: .6;
+			pointer-events: none;
+		}
+
+		&:hover {
+			color: var(--xts-heading-color);
+			opacity: .7;
+		}
+	}
+
+
+	.xts-popup-holder {
+
+		&.xts-opened {
+
+			:is(
+			.xts-popup,
+			.xts-popup-overlay) {
+				visibility: visible;
+				opacity: 1;
+				transition: all .2s ease-in-out;
+			}
+		}
+	}
+
+	.whb-header-builder {
+
+		.xts-popup-holder {
+
+			:is(
+			.whb-popup-overlay,
+			.xts-popup) {
+				animation: wd-fadeIn .2s ease-in-out;
+			}
+		}
+	}
+
+	// ------------------------------------------------------------------------------------
+	// XTS POPUP
+	// ------------------------------------------------------------------------------------
+
+	.xts-popup-opened {
+
+		body {
+			overflow: hidden;
+		}
+
+		&:not([dir="rtl"]) {
+
+			body {
+				padding-right: 15px;
+			}
+		}
+	}
+
+	// ------------------------------------------------------------------------------------
+	// WHB POPUP
+	// ------------------------------------------------------------------------------------
+
+	.whb-inline-checkbox {
+		margin-top: var(--xts-option-space);
+
+		label {
+			margin-bottom: 0 !important;
+			padding: 0 !important;
+			border-bottom: 0 !important;
+			font-weight: 400 !important;
+		}
+
+		[type="checkbox"] {
+			margin-inline-start: 4px !important;
+		}
+	}
+
+} // END IF

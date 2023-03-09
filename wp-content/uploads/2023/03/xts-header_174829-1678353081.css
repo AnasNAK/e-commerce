@@ -1,0 +1,54 @@
+:root{
+	--wd-top-bar-h: 0.001px;
+	--wd-top-bar-sm-h: 0.001px;
+	--wd-top-bar-sticky-h: 0.001px;
+
+	--wd-header-general-h: 90px;
+	--wd-header-general-sm-h: 60px;
+	--wd-header-general-sticky-h: 0.001px;
+
+	--wd-header-bottom-h: 0.001px;
+	--wd-header-bottom-sm-h: 0.001px;
+	--wd-header-bottom-sticky-h: 0.001px;
+
+	--wd-header-clone-h: 0.001px;
+}
+
+
+
+
+
+@media (min-width: 1025px) {
+	
+		.whb-general-header-inner {
+		height: 90px;
+		max-height: 90px;
+	}
+
+		.whb-sticked .whb-general-header-inner {
+		height: 60px;
+		max-height: 60px;
+	}
+		
+	
+	
+	}
+
+@media (max-width: 1024px) {
+	
+		.whb-general-header-inner {
+		height: 60px;
+		max-height: 60px;
+	}
+	
+	
+	
+	}
+		.whb-top-bar-inner { border-color: rgba(255, 255, 255, 0.25);border-bottom-width: 1px;border-bottom-style: solid; }
+.whb-general-header {
+	border-bottom-width: 0px;border-bottom-style: solid;
+}
+
+.whb-header-bottom {
+	border-color: rgba(230, 230, 230, 1);border-bottom-width: 1px;border-bottom-style: solid;
+}
